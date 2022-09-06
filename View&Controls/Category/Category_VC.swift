@@ -12,9 +12,16 @@ class Category_VC: UIViewController, UICollectionViewDelegate, UICollectionViewD
     @IBOutlet weak var listCollectionView: UICollectionView!
     @IBOutlet weak var coll: UICollectionView!
     var currentIndex = 0
-    var count = 1
     
     var newlist: [list] = []
+    var info: [data] = [data(imageBicycle: UIImage(named: "xe1")!, nameBicycle: "Xe Đạp Thể Thao", colorList: UIColor(red: 211/255, green: 230/255, blue: 247/255, alpha: 1), number: 0, index: 0),
+                        data(imageBicycle: UIImage(named: "xe2")!, nameBicycle: "Xe Đạp Thông Dụng", colorList: UIColor(red: 239/255, green: 247/255, blue: 211/255, alpha: 1), number: 0, index: 1),
+                        data(imageBicycle: UIImage(named: "xe3")!, nameBicycle: "Xe Đạp Đua", colorList: UIColor(red: 247/255, green: 211/255, blue: 234/255, alpha: 1), number: 0, index: 2),
+                        data(imageBicycle: UIImage(named: "xe4")!, nameBicycle: "Xe Đạp Thời Trang", colorList: UIColor(red: 211/255, green: 247/255, blue: 224/255, alpha: 1), number: 0, index: 3),
+                        data(imageBicycle: UIImage(named: "xe5")!, nameBicycle: "Xe Đạp Gấp", colorList: UIColor(red: 247/255, green: 228/255, blue: 211/255, alpha: 1), number: 0, index: 4),
+                        data(imageBicycle: UIImage(named: "xe6")!, nameBicycle: "Xe Đạp Trẻ Em", colorList: UIColor(red: 219/255, green: 211/255, blue: 247/255, alpha: 1), number: 0, index: 5),
+                        data(imageBicycle: UIImage(named: "xe7")!, nameBicycle: "Xe 7", colorList: UIColor(red: 211/255, green: 230/255, blue: 247/255, alpha: 1), number: 0, index: 6),
+                        data(imageBicycle: UIImage(named: "xe8")!, nameBicycle: "Xe 8", colorList: UIColor(red: 239/255, green: 247/255, blue: 211/255, alpha: 1), number: 0, index: 7)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +41,7 @@ class Category_VC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         if collectionView == self.coll {
             return newlist.count
         }
-        return info.imageBicycle.count
+        return info.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,10 +66,10 @@ class Category_VC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         }
         else {
             let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: "danhmucview", for: indexPath) as! DanhMucViewCell
-            cell2.numberTest.text = String(info.number[indexPath.row])
-            cell2.nameBicycle.text = info.nameBicycle[indexPath.row]
-            cell2.imageBicycle.image = info.imageBicycle[indexPath.row]
-            cell2.listView.backgroundColor = info.colorList[indexPath.row]
+            cell2.numberTest.text = String(info[indexPath.row].number)
+            cell2.nameBicycle.text = info[indexPath.row].nameBicycle
+            cell2.imageBicycle.image = info[indexPath.row].imageBicycle
+            cell2.listView.backgroundColor = info[indexPath.row].colorList
             cell2.listView.layer.cornerRadius = 20
             return cell2
         }
@@ -102,36 +109,19 @@ class Category_VC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         }
         if collectionView == self.listCollectionView {
             let newIndex = indexPath.row
-            
-            if info.number[newIndex] == 0 {
-                info.number[newIndex] = Int(count)
-                count += 1
+            var max = info.max { $0.number < $1.number }?.number
+            if info[newIndex].number == 0 {
+                max! += 1
+                info[newIndex].number = Int(max!)
             }else {
-                // element of array > element of newIndex
-                var index = info.number.filter { $0 > info.number[newIndex]}
-                let max = info.number.max()
-                
-                if info.number[newIndex] != max {
-                    // -1 index array
-                    for i in 0...index.count - 1{
-                        index[i] -= 1
-                    }
-                    
-                    //number element of index
-                    var j = 0
-                    
-                    //update new number
-                    for i in 0...info.number.count - 1 {
-                        if info.number[i] > info.number[newIndex] {
-                            info.number[i] = index[j]
-                            j += 1
-                        }else {
-                            info.number[i] = info.number[i]
-                        }
-                    }
+                let newArray = info.filter { $0.number > info[newIndex].number}
+//                print
+                for item in newArray {
+                    let new = info[item.index].number - 1
+                    info[item.index].number = new
                 }
-                info.number[newIndex] = 0
-                count -= 1
+                info[newIndex].number = 0
+                max! -= 1
             }
             collectionView.reloadData()
         }
