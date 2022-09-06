@@ -28,9 +28,10 @@ struct Data{
     var imageBicycle:[UIImage]
     var nameBicycle:[String]
     var colorList:[UIColor]
+    var number:[Int]
 }
 
-let info = Data(
+var info = Data(
 
     imageBicycle: [
         UIImage(named: "xe1")!,
@@ -61,6 +62,16 @@ let info = Data(
         UIColor(red: 219/255, green: 211/255, blue: 247/255, alpha: 1),
         UIColor(red: 211/255, green: 230/255, blue: 247/255, alpha: 1),
         UIColor(red: 239/255, green: 247/255, blue: 211/255, alpha: 1)
+    ],
+    number: [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
     ]
 )
 

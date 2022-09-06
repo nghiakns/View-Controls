@@ -649,6 +649,12 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-hD-GKt">
                                                     <rect key="frame" x="10" y="22" width="147" height="142"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5y-ra-ZqI" userLabel="numberTest">
+                                                    <rect key="frame" x="70.666666666666671" y="169" width="25.666666666666671" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="BLb-mq-BtU" secondAttribute="trailing" constant="20" id="4AQ-cH-y7o"/>
@@ -656,8 +662,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="F3Q-hD-GKt" secondAttribute="trailing" constant="10" id="AHw-GC-V63"/>
                                                 <constraint firstAttribute="bottom" secondItem="BLb-mq-BtU" secondAttribute="bottom" constant="15" id="D6S-x0-bp9"/>
                                                 <constraint firstItem="F3Q-hD-GKt" firstAttribute="top" secondItem="tbJ-EO-8kV" secondAttribute="top" constant="22" id="DGR-tJ-g0j"/>
+                                                <constraint firstItem="Q5y-ra-ZqI" firstAttribute="top" secondItem="F3Q-hD-GKt" secondAttribute="bottom" constant="5" id="IlS-br-2EZ"/>
                                                 <constraint firstItem="F3Q-hD-GKt" firstAttribute="leading" secondItem="tbJ-EO-8kV" secondAttribute="leading" constant="10" id="Jdu-0f-91C"/>
+                                                <constraint firstItem="BLb-mq-BtU" firstAttribute="top" secondItem="Q5y-ra-ZqI" secondAttribute="bottom" constant="5" id="g0F-xD-8R2"/>
                                                 <constraint firstItem="BLb-mq-BtU" firstAttribute="centerX" secondItem="tbJ-EO-8kV" secondAttribute="centerX" id="hot-6r-edk"/>
+                                                <constraint firstItem="Q5y-ra-ZqI" firstAttribute="centerX" secondItem="tbJ-EO-8kV" secondAttribute="centerX" id="pDn-Q0-0Kh"/>
                                                 <constraint firstItem="BLb-mq-BtU" firstAttribute="top" secondItem="F3Q-hD-GKt" secondAttribute="bottom" constant="30" id="yW9-f1-vOQ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -666,6 +675,7 @@
                                             <outlet property="imageBicycle" destination="F3Q-hD-GKt" id="zE7-MA-vQg"/>
                                             <outlet property="listView" destination="tbJ-EO-8kV" id="63Z-3b-rUD"/>
                                             <outlet property="nameBicycle" destination="BLb-mq-BtU" id="ZEy-Ti-ydg"/>
+                                            <outlet property="numberTest" destination="Q5y-ra-ZqI" id="EWU-wW-zrZ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

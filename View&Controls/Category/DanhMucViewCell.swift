@@ -11,5 +11,6 @@ class DanhMucViewCell: UICollectionViewCell {
     @IBOutlet weak var nameBicycle: UILabel!
     @IBOutlet weak var imageBicycle: UIImageView!
     @IBOutlet weak var listView: UIView!
+    @IBOutlet weak var numberTest: UILabel!
     
 }
