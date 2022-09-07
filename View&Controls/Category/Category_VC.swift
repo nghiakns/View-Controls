@@ -115,10 +115,9 @@ class Category_VC: UIViewController, UICollectionViewDelegate, UICollectionViewD
                 info[newIndex].number = Int(max!)
             }else {
                 let newArray = info.filter { $0.number > info[newIndex].number}
-//                print
+                
                 for item in newArray {
-                    let new = info[item.index].number - 1
-                    info[item.index].number = new
+                    item.number -= 1
                 }
                 info[newIndex].number = 0
                 max! -= 1

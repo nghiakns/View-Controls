@@ -24,12 +24,20 @@ struct list {
 
 
 
-struct data{
-    var imageBicycle:UIImage
-    var nameBicycle:String
-    var colorList:UIColor
-    var number:Int
-    var index:Int
+class data{
+    var imageBicycle: UIImage
+    var nameBicycle: String
+    var colorList: UIColor
+    var number: Int
+    var index: Int
+    
+    init(imageBicycle: UIImage, nameBicycle:String, colorList:UIColor, number: Int, index: Int){
+        self.imageBicycle = imageBicycle
+        self.nameBicycle = nameBicycle
+        self.colorList = colorList
+        self.number = number
+        self.index = index
+    }
 }
 
 
